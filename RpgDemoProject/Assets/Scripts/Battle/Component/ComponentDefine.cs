@@ -10,5 +10,7 @@ namespace RpgDemo
 		GameObject,
 		Move,
 		Animation,
+		StateMachine,
+		CommandHandler,
 	}
 }

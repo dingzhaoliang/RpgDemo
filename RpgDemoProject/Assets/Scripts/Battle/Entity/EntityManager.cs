@@ -19,12 +19,14 @@ namespace RpgDemo
                 Debug.LogError("entity is existed, entityID = " + entityID.ToString());
                 return;
             }
+            entity.AttachWorld();
             _entities.Add(entityID, entity);
         }
 
         public void RemoveEntity(Entity entity)
         {
-
+            entity.DetachFromWorld();
+            entity.Destroy();
         }
 
         public void LogicUpdate()
@@ -33,7 +35,6 @@ namespace RpgDemo
             {
                 entity.Update();
             }
-            
         }
     }
 }

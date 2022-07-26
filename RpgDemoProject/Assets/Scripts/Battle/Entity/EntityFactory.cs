@@ -4,19 +4,24 @@ using UnityEngine;
 
 namespace RpgDemo
 {
-    public class EntityFactory
-    {
-        private static uint _entityID = 0;
-        public static Entity CreatePlayEntity()
-        {
-            Entity entity = new Entity();
-            entity.Init();
-            IComponent gameObjectComponent = entity.AttachCompenent(ComponentID.GameObject, new GameObjectComponent());
-            gameObjectComponent.Init(new GameObjectComponentParams() { path = "Assets/Suriyun/Eri/Prefab/Eri_schooluniform.prefab" });
-            uint entityId = _entityID++;
-            entity.StartAll();
-            EntityManager.Instance.AddEntity(entityId, entity);
-            return entity;
-        }
-    }
+	public class EntityFactory
+	{
+		private static uint _entityID = 0;
+		public static Entity CreatePlayEntity(EntityParms entityParms)
+		{
+			Entity entity = new Entity(EntityKind.Player, entityParms.isLocalPlayer);
+			entity.Init();
+			IComponent gameObjectComponent = entity.AttachCompenent(ComponentID.GameObject, new GameObjectComponent(), new GameObjectComponentParams() { path = entityParms.prefabPath });
+			IComponent stateMachineComponent = entity.AttachCompenent(ComponentID.StateMachine, new StateMachineComponent(), new StateMachineComponentParams() { defaultState = ActionState.Idle });
+			entity.AttachCompenent(ComponentID.Move, new MoveComponent());
+			if (entityParms.isLocalPlayer)
+			{
+				entity.AttachCompenent(ComponentID.CommandHandler, new CommandHandlerComponent());
+			}
+			uint entityId = _entityID++;
+			entity.StartAll();
+			EntityManager.Instance.AddEntity(entityId, entity);
+			return entity;
+		}
+	}
 }

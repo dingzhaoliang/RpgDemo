@@ -6,21 +6,43 @@ namespace RpgDemo
 {
 	public class EntityParms
     {
-		public EntityKind entityKind;
 		public string prefabPath;
+		public bool isLocalPlayer;
     }
 	public class Entity
 	{
 		private EntityKind _entityKind = EntityKind.None;
 		private Dictionary<int, IComponent> _componentDic;
 		private List<IComponent> _componentList;
-		public GameObject GameObject { get; set; }
-		public EntityKind Kind { get; set; }
+		public EntityKind Kind { get { return _entityKind; } private set { }}
+		public bool IsLocalPlayer { get; private set; }
+
+		public Entity(EntityKind entityKind, bool isLocalPlayer = false)
+		{
+			_entityKind = entityKind;
+			IsLocalPlayer = isLocalPlayer;
+		}
 
 		public void Init()
 		{
 			_componentDic = new Dictionary<int, IComponent>();
 			_componentList = new List<IComponent>();
+		}
+
+		public virtual void AttachWorld()
+		{
+			foreach (var comp in _componentList)
+			{
+				comp.AttachWorld();
+			}
+		}
+
+		public virtual void DetachFromWorld()
+		{
+			foreach (var comp in _componentList)
+			{
+				comp.DetachFromWorld();
+			}
 		}
 
 		public void Destroy()
@@ -35,6 +57,17 @@ namespace RpgDemo
 		{
 			if (!_componentDic.ContainsKey((int)componentID))
 			{
+				component.Init(null);
+				_componentDic.Add((int)componentID, component);
+				_componentList.Add(component);
+			}
+			return component;
+		}
+		public IComponent AttachCompenent(ComponentID componentID, IComponent component, BaseComponentParms baseComponentParms)
+		{
+			if (!_componentDic.ContainsKey((int)componentID))
+			{
+				component.Init(baseComponentParms);
 				_componentDic.Add((int)componentID, component);
 				_componentList.Add(component);
 			}
@@ -45,6 +78,13 @@ namespace RpgDemo
 			IComponent component = null;
 			_componentDic.TryGetValue((int)componentID, out component);
 			return component;
+		}
+
+		public T GetCompenent<T>(ComponentID componentID) where T:IComponent
+		{
+			IComponent component = null;
+			_componentDic.TryGetValue((int)componentID, out component);
+			return component as T;
 		}
 		public virtual void StartAll()
 		{

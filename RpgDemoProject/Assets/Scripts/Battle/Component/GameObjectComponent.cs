@@ -28,5 +28,10 @@ namespace RpgDemo
             _gameObject = GameObject.Instantiate(go);
             _gameObject.transform.SetParent(EntityManager.Instance.transform);
         }
+
+        public GameObject GameObject
+		{
+			get { return _gameObject; }
+		}
     }
 }

@@ -21,6 +21,17 @@ namespace RpgDemo
 		{
 
 		}
+
+		public virtual void AttachWorld()
+		{
+
+		}
+
+		public virtual void DetachFromWorld()
+		{
+
+		}
+
 		public virtual void SetParent(Entity entity)
 		{
 			_entity = entity;

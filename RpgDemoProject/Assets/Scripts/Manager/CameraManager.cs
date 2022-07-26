@@ -1,0 +1,24 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace RpgDemo
+{
+	public class CameraManager : USingleton<CameraManager>
+	{
+		private Camera _mainCamera;
+		private Transform _target;
+		public void Init()
+		{
+			_mainCamera = Camera.main;
+		}
+
+		private void LateUpdate()
+		{
+			if(_target != null && _mainCamera != null)
+			{
+				_mainCamera.transform.LookAt(_target);
+			}
+		}
+	}
+}

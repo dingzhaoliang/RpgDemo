@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4513601, g: 0.500937, b: 0.57277656, a: 1}
+  m_IndirectSpecularColor: {r: 0.45136058, g: 0.50093776, b: 0.5727775, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18857,7 +18857,7 @@ GameObject:
   - component: {fileID: 2039432937}
   - component: {fileID: 2039432936}
   m_Layer: 0
-  m_Name: BattleGame
+  m_Name: GameLogic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
