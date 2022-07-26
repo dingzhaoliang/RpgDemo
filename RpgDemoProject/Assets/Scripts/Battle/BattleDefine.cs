@@ -19,6 +19,8 @@ namespace RpgDemo
 	public enum EntityAnimationInteger
 	{
 		None = 0,
+		IdleA = 1,
+		IdleB = 2,
 		Walk = 6,
 		IdleF = 28,
 	}

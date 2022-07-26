@@ -50,7 +50,7 @@ namespace RpgDemo
 
 		public void TransferToState(ActionState actionState)
 		{
-			var nextAction = GetActionState(_stateMachineComponentParams.defaultState);
+			var nextAction = GetActionState(actionState);
 
 			if (_curAction.IsPermited() && nextAction.IsConditioned())
 			{
@@ -91,8 +91,8 @@ namespace RpgDemo
 					break;
 			}
 			action.Init();
-			action.SetEntity(_entity);
 			Assert.IsTrue(action.GetState() != ActionState.None);
+			action.SetEntity(_entity);
 			_actionStates.Add(action);
 			return action;
 		}

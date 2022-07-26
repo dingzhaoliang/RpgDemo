@@ -12,12 +12,13 @@ namespace RpgDemo
 			Entity entity = new Entity(EntityKind.Player, entityParms.isLocalPlayer);
 			entity.Init();
 			IComponent gameObjectComponent = entity.AttachCompenent(ComponentID.GameObject, new GameObjectComponent(), new GameObjectComponentParams() { path = entityParms.prefabPath });
-			IComponent stateMachineComponent = entity.AttachCompenent(ComponentID.StateMachine, new StateMachineComponent(), new StateMachineComponentParams() { defaultState = ActionState.Idle });
 			entity.AttachCompenent(ComponentID.Move, new MoveComponent());
+			entity.AttachCompenent(ComponentID.Animation, new AnimationComponent());
 			if (entityParms.isLocalPlayer)
 			{
 				entity.AttachCompenent(ComponentID.CommandHandler, new CommandHandlerComponent());
 			}
+			IComponent stateMachineComponent = entity.AttachCompenent(ComponentID.StateMachine, new StateMachineComponent(), new StateMachineComponentParams() { defaultState = ActionState.Idle });
 			uint entityId = _entityID++;
 			entity.StartAll();
 			EntityManager.Instance.AddEntity(entityId, entity);

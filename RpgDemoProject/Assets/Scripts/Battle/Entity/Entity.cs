@@ -57,6 +57,7 @@ namespace RpgDemo
 		{
 			if (!_componentDic.ContainsKey((int)componentID))
 			{
+				component.SetParent(this);
 				component.Init(null);
 				_componentDic.Add((int)componentID, component);
 				_componentList.Add(component);
@@ -67,6 +68,7 @@ namespace RpgDemo
 		{
 			if (!_componentDic.ContainsKey((int)componentID))
 			{
+				component.SetParent(this);
 				component.Init(baseComponentParms);
 				_componentDic.Add((int)componentID, component);
 				_componentList.Add(component);
@@ -88,16 +90,18 @@ namespace RpgDemo
 		}
 		public virtual void StartAll()
 		{
-			foreach (var comp in _componentList)
-			{
-				comp.Start();
+			for(int i = 0; i < _componentList.Count; i++)
+            {
+				_componentList[i].Start();
+
 			}
 		}
 		public virtual void Update()
 		{
-			foreach(var comp in _componentList)
+			for (int i = 0; i < _componentList.Count; i++)
 			{
-				comp.Update();
+				_componentList[i].Update();
+
 			}
 		}
 	}

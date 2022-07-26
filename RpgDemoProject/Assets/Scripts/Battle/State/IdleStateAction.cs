@@ -14,7 +14,7 @@ namespace RpgDemo
 		public override void StateBegin()
 		{
 			var entity = GetEntity();
-			entity.GetCompenent<AnimationComponent>(ComponentID.Animation).PlayAnimation(EntityAnimationInteger.IdleF);
+			entity.GetCompenent<AnimationComponent>(ComponentID.Animation).PlayAnimation(EntityAnimationInteger.IdleB);
 		}
 
 		public override void OnCommand(Command command)

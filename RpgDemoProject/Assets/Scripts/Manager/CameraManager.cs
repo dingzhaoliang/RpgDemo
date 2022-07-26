@@ -12,7 +12,10 @@ namespace RpgDemo
 		{
 			_mainCamera = Camera.main;
 		}
-
+		public void SetTarget(Transform transform)
+        {
+			_target = transform;
+        }
 		private void LateUpdate()
 		{
 			if(_target != null && _mainCamera != null)

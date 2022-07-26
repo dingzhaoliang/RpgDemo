@@ -43,7 +43,8 @@ namespace RpgDemo
 		void Start()
 		{
 			EntityParms entityParms = new EntityParms() { prefabPath = "Assets/Suriyun/Eri/Prefab/Eri_schooluniform.prefab" , isLocalPlayer = true};
-			EntityFactory.CreatePlayEntity(entityParms);
+			var entity = EntityFactory.CreatePlayEntity(entityParms);
+			CameraManager.Instance.SetTarget(entity.GetCompenent<GameObjectComponent>(ComponentID.GameObject).GameObject.transform);
 		}
 
 		// Update is called once per frame

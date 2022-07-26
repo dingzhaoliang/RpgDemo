@@ -13,6 +13,10 @@ namespace RpgDemo
 		private Vector3 _curPos;
 		public override void Init(BaseComponentParms baseComponentParms)
 		{
+
+		}
+		public override void Start()
+		{
 			var goComp = _entity.GetCompenent<GameObjectComponent>(ComponentID.GameObject);
 			if (goComp != null)
 			{
@@ -20,9 +24,6 @@ namespace RpgDemo
 			}
 			_moveing = false;
 			_curPos = _transform.position;
-		}
-		public override void Start()
-		{
 		}
 
 		public override void AttachWorld()
