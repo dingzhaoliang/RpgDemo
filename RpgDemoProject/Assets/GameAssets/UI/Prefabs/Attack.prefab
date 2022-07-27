@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4500326963764946113}
   - component: {fileID: 3873958742262310790}
   - component: {fileID: 1372317293823136065}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 3512616770605163541}
   - component: {fileID: 3512616770605163543}
   - component: {fileID: 4141100787379672274}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Attack
   m_TagString: QueueFloat
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 3512616772242730388}
   - component: {fileID: 3512616772242730390}
   - component: {fileID: 3512616772242730389}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

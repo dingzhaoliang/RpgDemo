@@ -13,7 +13,7 @@ namespace RpgDemo
 		public void Init()
 		{
 			_root = GameObject.Find("Canvas").transform;
-			_uiCamera = GameObject.Find("Canvas/Player3DUI").GetComponent<Camera>();
+			_player3DUI = GameObject.Find("Canvas/Player3DUI").transform;
 		}
 	}
 }

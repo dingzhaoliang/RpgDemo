@@ -38,6 +38,7 @@ namespace RpgDemo
 			deltaTime = 0;
 			EntityManager.Instance.Init();
 			CameraManager.Instance.Init();
+			UIManager.Instance.Init();
 		}
 		// Start is called before the first frame update
 		void Start()
