@@ -22,6 +22,11 @@ namespace RpgDemo
 
 		}
 
+		public virtual void Destroy()
+		{
+
+		}
+
 		public virtual void AttachWorld()
 		{
 

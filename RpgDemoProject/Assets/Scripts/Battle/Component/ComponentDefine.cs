@@ -8,9 +8,11 @@ namespace RpgDemo
 	{
 		None = 0,
 		GameObject,
+		Attribute,
 		Move,
 		Animation,
 		StateMachine,
 		CommandHandler,
+		EntityUI,
 	}
 }

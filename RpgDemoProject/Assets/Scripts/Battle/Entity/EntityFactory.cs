@@ -14,6 +14,7 @@ namespace RpgDemo
 			IComponent gameObjectComponent = entity.AttachCompenent(ComponentID.GameObject, new GameObjectComponent(), new GameObjectComponentParams() { path = entityParms.prefabPath });
 			entity.AttachCompenent(ComponentID.Move, new MoveComponent());
 			entity.AttachCompenent(ComponentID.Animation, new AnimationComponent());
+			entity.AttachCompenent(ComponentID.EntityUI, new EntityUIComponent(), new EntityUIComponenttParams() { path = "Assets/GameAssets/UI/Prefabs/Player3DUI.prefab", kind = EntityUIKind.Player });
 			if (entityParms.isLocalPlayer)
 			{
 				entity.AttachCompenent(ComponentID.CommandHandler, new CommandHandlerComponent());

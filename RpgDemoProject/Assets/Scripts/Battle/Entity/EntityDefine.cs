@@ -11,4 +11,11 @@ namespace RpgDemo
 		Monster = 1 << 1,
 		Bullet = 1 << 2,
 	}
+
+	public enum EntityUIKind
+	{
+		None = 0,
+		Player = 1 << 0,
+		Monster = 1 << 1,
+	}
 }
