@@ -43,7 +43,7 @@ namespace RpgDemo
 		// Start is called before the first frame update
 		void Start()
 		{
-			EntityParms entityParms = new EntityParms() { prefabPath = "Assets/Suriyun/Eri/Prefab/Eri_schooluniform.prefab" , isLocalPlayer = true};
+			EntityParms entityParms = new EntityParms() { configName = "LocalPlayerEntityConfig", isLocalPlayer = true};
 			var entity = EntityFactory.CreatePlayEntity(entityParms);
 			CameraManager.Instance.SetTarget(entity.GetCompenent<GameObjectComponent>(ComponentID.GameObject).GameObject.transform);
 		}

@@ -6,8 +6,8 @@ namespace RpgDemo
 {
 	public class EntityParms
     {
-		public string prefabPath;
 		public bool isLocalPlayer;
+		public string configName;
     }
 	public class Entity
 	{

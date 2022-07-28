@@ -14,7 +14,7 @@ namespace RpgDemo
         public static Vector2 ScreenPointToLocalPoint(GameObject obj, Vector2 screenPoint)
         {
             Vector2 pos;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle((obj.transform as RectTransform), screenPoint, CameraManager.Instance.UICamera, out pos);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle((obj.transform as RectTransform), screenPoint, UIManager.Instance.UICamera, out pos);
             return pos;
         }
 
@@ -33,7 +33,7 @@ namespace RpgDemo
         //获取UI对象在屏幕空间的坐标
         public static Vector2 GetScreenPoint(GameObject obj)
         {
-            return RectTransformUtility.WorldToScreenPoint(CameraManager.Instance.UICamera, obj.transform.position);
+            return RectTransformUtility.WorldToScreenPoint(UIManager.Instance.UICamera, obj.transform.position);
         }
 
         //世界空间到UI空间
@@ -41,7 +41,7 @@ namespace RpgDemo
         {
             Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(CameraManager.Instance.MainCamera, worldPos);
             Vector2 localPoint;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, screenPoint, CameraManager.Instance.UICamera, out localPoint);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, screenPoint, UIManager.Instance.UICamera, out localPoint);
             return localPoint;
         }
         
@@ -51,7 +51,7 @@ namespace RpgDemo
             camera = null == camera ? CameraManager.Instance.MainCamera : camera;
             Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(camera, worldPos);
             Vector2 localPoint;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, screenPoint, CameraManager.Instance.UICamera, out localPoint);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, screenPoint, UIManager.Instance.UICamera, out localPoint);
             return localPoint;
         }
 
@@ -130,7 +130,7 @@ namespace RpgDemo
 
         public static Vector3 ScreenToWorldPoint(Vector2 screenPos)
         {
-           return CameraManager.Instance.UICamera.ScreenToWorldPoint(screenPos);
+           return UIManager.Instance.UICamera.ScreenToWorldPoint(screenPos);
         }
 
         public static void SetSpacing(HorizontalLayoutGroup group, float x)

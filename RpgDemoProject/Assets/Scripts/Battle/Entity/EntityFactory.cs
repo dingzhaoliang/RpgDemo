@@ -9,9 +9,10 @@ namespace RpgDemo
 		private static uint _entityID = 0;
 		public static Entity CreatePlayEntity(EntityParms entityParms)
 		{
+			EntityConfig entityConfig = Resources.Load<EntityConfig>(entityParms.configName);
 			Entity entity = new Entity(EntityKind.Player, entityParms.isLocalPlayer);
 			entity.Init();
-			IComponent gameObjectComponent = entity.AttachCompenent(ComponentID.GameObject, new GameObjectComponent(), new GameObjectComponentParams() { path = entityParms.prefabPath });
+			IComponent gameObjectComponent = entity.AttachCompenent(ComponentID.GameObject, new GameObjectComponent(), new GameObjectComponentParams() { path = entityConfig.prefabPath });
 			entity.AttachCompenent(ComponentID.Move, new MoveComponent());
 			entity.AttachCompenent(ComponentID.Animation, new AnimationComponent());
 			entity.AttachCompenent(ComponentID.EntityUI, new EntityUIComponent(), new EntityUIComponenttParams() { path = "Assets/GameAssets/UI/Prefabs/Player3DUI.prefab", kind = EntityUIKind.Player });

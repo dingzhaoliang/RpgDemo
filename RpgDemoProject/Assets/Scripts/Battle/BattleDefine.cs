@@ -24,4 +24,12 @@ namespace RpgDemo
 		Walk = 6,
 		IdleF = 28,
 	}
+
+	public enum AttrID
+	{
+		maxHp = 1,
+		curHp,
+		physical_atk,
+		magic_atk,
+	}
 }
