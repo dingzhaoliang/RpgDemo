@@ -8,6 +8,7 @@ namespace RpgDemo
 	{
 		private Transform _transform;
 		private bool _moveing;
+		private bool _canRotate;
 		private float _speed;
 		private Vector3 _direction;
 		private Vector3 _curPos;
@@ -23,6 +24,7 @@ namespace RpgDemo
 				_transform = goComp.GameObject.transform;
 			}
 			_moveing = false;
+			_canRotate = false;
 			_curPos = _transform.position;
 		}
 
@@ -38,6 +40,11 @@ namespace RpgDemo
 
 		private void OnVisualUpdate()
 		{
+			UpdatePosition();
+		}
+
+		private void UpdatePosition()
+		{
 			if (_moveing)
 			{
 				_curPos = _curPos + Time.deltaTime * _speed * _direction;
@@ -45,9 +52,20 @@ namespace RpgDemo
 			}
 		}
 
+		private void SetRotation()
+		{
+			if (_canRotate)
+			{
+				float angle = 90 - Mathf.Atan2(_direction.z, _direction.x) * 180 / Mathf.PI;
+				angle = angle % 360;
+				_transform.localRotation = Quaternion.Euler(0, angle, 0);
+			}
+		}
+
 		public void StartMove()
 		{
 			_moveing = true;
+			_canRotate = true;
 			_curPos = _transform.position;
 		}
 
@@ -59,11 +77,13 @@ namespace RpgDemo
 		public void UpdateDirection(Vector3 direction)
 		{
 			_direction = direction;
+			SetRotation();
 		}
 
 		public void StopMove()
 		{
 			_moveing = false;
+			_canRotate = false;
 			_speed = 0;
 			_direction = Vector3.zero;
 		}

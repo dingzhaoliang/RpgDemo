@@ -65,7 +65,7 @@ namespace RpgDemo
 
 		void UpdateGameInput()
 		{
-			_command.Direction = KeyBoardUtils.GetKeyBoardMoveDirection();
+			_command.Direction = KeyBoardUtils.GetMoveDirection();
 			_localPlayerCommandHandler?.Invoke(_command);
 		}
 	}

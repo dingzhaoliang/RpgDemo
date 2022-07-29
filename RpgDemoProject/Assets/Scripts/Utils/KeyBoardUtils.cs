@@ -2,97 +2,108 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class KeyBoardUtils
+namespace RpgDemo
 {
-	public static Vector3 GetKeyBoardMoveDirection()
+	public class KeyBoardUtils
 	{
-		bool keyUp = false;
-		bool keyDown = false;
-		bool keyLeft = false;
-		bool keyRight = false;
-		Vector3 getDirection = Vector3.zero;
 
-		if (Input.GetKey(KeyCode.W))
+		public static Vector3 GetMoveDirection()
 		{
-			keyUp = true;
+			Vector3 forward = CameraManager.Instance.MainCamera.transform.forward;
+			forward.y = 0;
+			Quaternion inputFrame = Quaternion.LookRotation(forward.normalized, Vector3.up);
+			Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+			return inputFrame * input;
 		}
-		if (Input.GetKeyUp(KeyCode.W))
+		public static Vector3 GetKeyBoardMoveDirection()
 		{
-			keyUp = false;
-		}
-		if (Input.GetKey(KeyCode.S))
-		{
-			keyDown = true;
-		}
-		if (Input.GetKeyUp(KeyCode.S))
-		{
-			keyDown = false;
-		}
-		if (Input.GetKey(KeyCode.A))
-		{
-			keyLeft = true;
-		}
-		if (Input.GetKeyUp(KeyCode.A))
-		{
-			keyLeft = false;
-		}
-		if (Input.GetKey(KeyCode.D))
-		{
-			keyRight = true;
-		}
-		if (Input.GetKeyUp(KeyCode.D))
-		{
-			keyRight = false;
-		}
+			bool keyUp = false;
+			bool keyDown = false;
+			bool keyLeft = false;
+			bool keyRight = false;
+			Vector3 getDirection = Vector3.zero;
 
-		if (keyUp)
-		{
-			if (keyLeft)
+			if (Input.GetKey(KeyCode.W))
 			{
-				getDirection = GetDirection(135);
+				keyUp = true;
+			}
+			if (Input.GetKeyUp(KeyCode.W))
+			{
+				keyUp = false;
+			}
+			if (Input.GetKey(KeyCode.S))
+			{
+				keyDown = true;
+			}
+			if (Input.GetKeyUp(KeyCode.S))
+			{
+				keyDown = false;
+			}
+			if (Input.GetKey(KeyCode.A))
+			{
+				keyLeft = true;
+			}
+			if (Input.GetKeyUp(KeyCode.A))
+			{
+				keyLeft = false;
+			}
+			if (Input.GetKey(KeyCode.D))
+			{
+				keyRight = true;
+			}
+			if (Input.GetKeyUp(KeyCode.D))
+			{
+				keyRight = false;
+			}
+
+			if (keyUp)
+			{
+				if (keyLeft)
+				{
+					getDirection = GetDirection(135);
+				}
+				else if (keyRight)
+				{
+					getDirection = GetDirection(45);
+				}
+				else
+				{
+					getDirection = GetDirection(90);
+				}
+			}
+			else if (keyDown)
+			{
+				if (keyLeft)
+				{
+					getDirection = GetDirection(225);
+				}
+				else if (keyRight)
+				{
+					getDirection = GetDirection(315);
+				}
+				else
+				{
+					getDirection = GetDirection(270);
+				}
+			}
+			else if (keyLeft)
+			{
+				getDirection = GetDirection(180);
 			}
 			else if (keyRight)
 			{
-				getDirection = GetDirection(45);
+				getDirection = GetDirection(360);
 			}
-			else
-			{
-				getDirection = GetDirection(90);
-			}
-		}
-		else if (keyDown)
-		{
-			if (keyLeft)
-			{
-				getDirection = GetDirection(225);
-			}
-			else if (keyRight)
-			{
-				getDirection = GetDirection(315);
-			}
-			else
-			{
-				getDirection = GetDirection(270);
-			}
-		}
-		else if (keyLeft)
-		{
-			getDirection = GetDirection(180);
-		}
-		else if (keyRight)
-		{
-			getDirection = GetDirection(360);
+
+			return getDirection;
 		}
 
-		return getDirection;
-	}
-
-	public static Vector3 GetDirection(float angle)
-	{
-		Vector3 getDirection = Vector3.zero;
-		getDirection.x = (float)Math.Cos(angle * Math.PI / 180);
-		getDirection.z = (float)Math.Sin(angle * Math.PI / 180);
-		return getDirection;
+		public static Vector3 GetDirection(float angle)
+		{
+			Vector3 getDirection = Vector3.zero;
+			getDirection.x = (float)Math.Cos(angle * Math.PI / 180);
+			getDirection.z = (float)Math.Sin(angle * Math.PI / 180);
+			return getDirection;
+		}
 	}
 }
