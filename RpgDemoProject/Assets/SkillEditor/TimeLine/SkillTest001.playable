@@ -17,15 +17,14 @@ MonoBehaviour:
   loopCount: 1
   loopInterval: 0
   prob: 1
-  triggerType: 1
-  triggerParams:
-  - id: 0
-  references:
-    version: 1
-    00000000:
-      type: {class: TimeParams, ns: , asm: Assembly-CSharp}
-      data:
-        time: 0
+  triggerManager:
+    triggerType: 1
+    timeParams:
+      time: 0
+    addBuffParams:
+      buffID: 0
+    onCDEnterParams:
+      skillID: 0
 --- !u!114 &-2156862817330048869
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -39,10 +38,18 @@ MonoBehaviour:
   m_Name: PlaySound
   m_EditorClassIdentifier: 
   eventID: 18255570758
-  preID: 0
+  preID: 18255570758
   loopCount: 0
   loopInterval: 0
   prob: 1
+  triggerManager:
+    triggerType: 3
+    timeParams:
+      time: 0
+    addBuffParams:
+      buffID: 0
+    onCDEnterParams:
+      skillID: 0
   animation: 
 --- !u!114 &-2123295583009217650
 MonoBehaviour:
@@ -198,16 +205,15 @@ MonoBehaviour:
   loopCount: 0
   loopInterval: 0
   prob: 1
-  triggerType: 3
-  triggerParams:
-  - id: 0
+  triggerManager:
+    triggerType: 1
+    timeParams:
+      time: 0
+    addBuffParams:
+      buffID: 0
+    onCDEnterParams:
+      skillID: 0
   animation: idle
-  references:
-    version: 1
-    00000000:
-      type: {class: AddBuffParams, ns: , asm: Assembly-CSharp}
-      data:
-        buffID: 0
 --- !u!114 &6418021239477464604
 MonoBehaviour:
   m_ObjectHideFlags: 1

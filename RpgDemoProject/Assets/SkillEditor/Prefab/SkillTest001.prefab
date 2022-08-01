@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 861727886752378070}
   - component: {fileID: 6447096502270397294}
-  - component: {fileID: 7180598634433890138}
   m_Layer: 0
   m_Name: SkillTest001
   m_TagString: Untagged
@@ -55,15 +54,3 @@ PlayableDirector:
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
---- !u!114 &7180598634433890138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65121945748677532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49c0d7dbc3a2f247afcbc6cf05bf007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

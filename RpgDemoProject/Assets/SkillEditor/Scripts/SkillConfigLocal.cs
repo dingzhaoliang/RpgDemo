@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.IO;
+using UnityEngine;
 
 public static class SkillConfigLocal
 {
@@ -6,7 +7,12 @@ public static class SkillConfigLocal
 
 	public static string GetPath()
 	{
-		return System.Environment.CurrentDirectory + "/Assets/Config/Json/Skill/";
+		string path = System.Environment.CurrentDirectory + "/Assets/GameAssets/Config/Json/Skill/";
+		if (!Directory.Exists(path))
+		{
+			Directory.CreateDirectory(path);
+		}
+		return path;
 	}
 
 	public static string GetLuaPath()

@@ -16,6 +16,7 @@ namespace RpgDemo
         [FoldoutGroup("BaseParams")]
         [InlineButton("New")]
         [InlineButton("Copy")]
+        [DisplayAsString]
         public long eventID;
 
         [SkillBaseParams]
@@ -39,7 +40,12 @@ namespace RpgDemo
         [FoldoutGroup("BaseParams")]
         public float prob = 1f;
 
-        public SkillEventBase()
+        [FoldoutGroup("Trigger")]
+        [PropertyOrder(1)]
+        [HideLabel]
+        public EventTriggerManager triggerManager;
+
+		public SkillEventBase()
         {
             NewEventID();
         }

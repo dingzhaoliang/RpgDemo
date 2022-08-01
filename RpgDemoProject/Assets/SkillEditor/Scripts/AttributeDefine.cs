@@ -16,7 +16,7 @@ public class SkillCustomParamsAttribute : Attribute
 
 }
 
-[AttributeUsage(AttributeTargets.Class)]
+[AttributeUsage(AttributeTargets.Field)]
 public class EventTriggerAttribute:Attribute
 {
 	public EventTriggerType triggerType;

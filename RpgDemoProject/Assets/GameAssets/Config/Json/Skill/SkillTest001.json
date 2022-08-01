@@ -1,0 +1,44 @@
+[
+  {
+    "id": 22236580191,
+    "preId": 0,
+    "prob": 1.0,
+    "event": "SkillEvent001",
+    "type": 1,
+    "type_param": {
+      "time": 0.0
+    },
+    "loop": [
+      1,
+      0.0
+    ]
+  },
+  {
+    "id": 26918607749,
+    "preId": 0,
+    "prob": 1.0,
+    "event": "PlayAnimation",
+    "type": 1,
+    "type_param": {
+      "time": 0.0
+    },
+    "loop": [
+      0,
+      0.0
+    ]
+  },
+  {
+    "id": 18255570758,
+    "preId": 18255570758,
+    "prob": 1.0,
+    "event": "PlaySound",
+    "type": 3,
+    "type_param": {
+      "buffID": 0
+    },
+    "loop": [
+      0,
+      0.0
+    ]
+  }
+]

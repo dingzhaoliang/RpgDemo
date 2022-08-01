@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class SkillEvent001 : BaseSkillEvent
+namespace RpgDemo
 {
+	public class SkillEventTest : SkillEventBase
+	{
 
+	}
 }

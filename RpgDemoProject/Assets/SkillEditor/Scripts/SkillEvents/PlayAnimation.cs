@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using Sirenix.OdinInspector;
 
-public class PlayAnimation : BaseSkillEvent
+namespace RpgDemo
 {
-	[SkillCustomParams]
-	public string animation;
+	public class PlayAnimation : SkillEventBase
+	{
+		[SkillCustomParams]
+		[FoldoutGroup("CounstomParams")]
+		public string animation;
+	}
 }
