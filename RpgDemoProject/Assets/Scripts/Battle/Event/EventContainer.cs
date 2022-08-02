@@ -13,7 +13,7 @@ namespace RpgDemo
 		}
 		public void ParseEvent()
 		{
-
+			JSONClass json = ResourceManager.Instance.LoadJson(_eventPath);
 		}
 	}
 }

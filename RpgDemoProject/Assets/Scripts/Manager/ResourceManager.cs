@@ -13,5 +13,13 @@ namespace RpgDemo
             return gameObject;
         }
 
-    }
+
+		public JSONClass LoadJson(string path)
+		{
+			Object jsonObject;
+            jsonObject = AssetDatabase.LoadAssetAtPath<Object>(path);
+            JSONClass jsonCfg = JSONNode.Parse(jsonObject.ToString()) as JSONClass;
+            return jsonCfg;
+		}
+	}
 }

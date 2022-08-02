@@ -32,4 +32,16 @@ namespace RpgDemo
 		physical_atk,
 		magic_atk,
 	}
+
+	public enum CampType
+	{
+		enemy = 1 << 0,
+		ally = 1 << 1,
+		all = 1 << 2,
+	}
+
+	public enum SearchType
+	{
+		self = 1 << 0,
+	}
 }
